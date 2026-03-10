@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Heri Setia Wardoyo — Technical Program Manager & Architect</title>
+  <title>Heri Setia Wardoyo — Digital Transformation Leader & Enterprise Solutions Strategist</title>
+
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
+
   <meta
     name="description"
-    content="Heri Setia Wardoyo — Technical Program Manager and Enterprise Architect. Portfolio covering digital transformation, enterprise systems, and AI-based ERP development."
+    content="Heri Setia Wardoyo — Digital Transformation Leader and Enterprise Solutions Strategist. Portfolio covering digital transformation, enterprise systems, delivery leadership, and AI-based ERP development."
   />
   <meta name="theme-color" content="#0a0a0f" />
 
@@ -165,7 +167,7 @@
       margin-top: 2.5rem;
       font-size: clamp(0.95rem, 1.8vw, 1.15rem);
       color: var(--muted);
-      max-width: 560px;
+      max-width: 680px;
       line-height: 1.7;
       opacity: 0;
       animation: fadeUp 0.8s 0.45s forwards;
@@ -401,8 +403,8 @@
       letter-spacing: 0.06em;
     }
 
-    /* Stack */
-    .stack-list {
+    /* Shared capability grid */
+    .cap-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
@@ -412,7 +414,7 @@
       overflow: hidden;
     }
 
-    .stack-item {
+    .cap-card {
       background: var(--surface);
       padding: 1.75rem;
       display: flex;
@@ -422,11 +424,11 @@
       min-width: 0;
     }
 
-    .stack-item:hover {
+    .cap-card:hover {
       background: #16161f;
     }
 
-    .stack-category {
+    .cap-category {
       font-family: var(--mono);
       font-size: 0.6rem;
       color: var(--accent2);
@@ -434,13 +436,13 @@
       text-transform: uppercase;
     }
 
-    .stack-name {
+    .cap-name {
       font-size: 1rem;
       color: var(--text);
       font-weight: 500;
     }
 
-    .stack-desc {
+    .cap-desc {
       font-size: 0.82rem;
       color: var(--muted);
       line-height: 1.5;
@@ -690,7 +692,7 @@
         gap: 2rem;
       }
 
-      .stack-list {
+      .cap-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -733,7 +735,7 @@
         grid-template-columns: 1fr;
       }
 
-      .stack-list {
+      .cap-grid {
         grid-template-columns: 1fr;
       }
 
@@ -745,7 +747,8 @@
       .project-card,
       .pub-card,
       .exp-item,
-      .contact-item {
+      .contact-item,
+      .cap-card {
         padding: 1.5rem;
       }
     }
@@ -777,6 +780,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#stack">Stack</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -784,11 +788,12 @@
     </nav>
 
     <div class="hero-content">
-      <p class="hero-label">Technical Program Manager &amp; Enterprise Architect</p>
+      <p class="hero-label">Digital Transformation Leader &amp; Enterprise Solutions Strategist</p>
       <h1 class="hero-name">Heri Setia<br /><em>Wardoyo</em></h1>
       <p class="hero-tagline">
-        I speak both business and code — translating strategic objectives into systems that scale.
-        From telecom billing to aviation commerce platforms to AI-powered ERP, I build things that move the needle.
+        I bridge business priorities, technology strategy, and execution discipline to deliver scalable digital solutions.
+        Across telecom, aviation, government, finance, and enterprise systems, I lead transformation initiatives that
+        improve operations, enable growth, and turn complexity into measurable outcomes.
       </p>
       <div class="hero-cta">
         <a href="#experience" class="btn btn-primary">View Experience</a>
@@ -811,13 +816,13 @@
     <div class="about-grid">
       <div class="about-text reveal">
         <p>
-          I design and build systems at the intersection of <strong>business strategy and software engineering</strong>.
-          Most engineers build what they are told. I start from the business problem — understanding the workflows,
-          the decisions, the pain — then architect a solution that fits.
+          I design and deliver solutions at the intersection of <strong>business strategy, digital transformation, and enterprise execution</strong>.
+          I start from the business problem — understanding workflows, priorities, constraints, and decision paths — then
+          translate complexity into practical systems and measurable outcomes.
         </p>
         <p>
-          Over 15+ years I have led digital transformation across <strong>telecom, aviation, banking, government, and logistics</strong>
-          — managing cross-continental teams and delivering systems used by hundreds of thousands of end users.
+          Over 15+ years I have led transformation initiatives across <strong>telecom, aviation, banking, government, logistics, and enterprise platforms</strong>,
+          managing cross-functional teams and aligning delivery with operational and strategic goals.
         </p>
         <p>
           Currently building <strong>Enigra</strong> — an AI-based ERP for SMEs, designed from real business process understanding.
@@ -955,48 +960,93 @@
       <h2 class="section-title">Tech Stack</h2>
     </div>
 
-    <div class="stack-list reveal">
-      <div class="stack-item">
-        <span class="stack-category">Frontend</span>
-        <span class="stack-name">Kotlin Multiplatform</span>
-        <span class="stack-desc">Compose Multiplatform — Android, iOS, Desktop &amp; Web/Wasm from a single codebase.</span>
+    <div class="cap-grid reveal">
+      <div class="cap-card">
+        <span class="cap-category">Frontend</span>
+        <span class="cap-name">Kotlin Multiplatform</span>
+        <span class="cap-desc">Compose Multiplatform — Android, iOS, Desktop &amp; Web/Wasm from a single codebase.</span>
       </div>
 
-      <div class="stack-item">
-        <span class="stack-category">Backend</span>
-        <span class="stack-name">Spring Boot · Java · Kotlin</span>
-        <span class="stack-desc">JPA for transactional logic, R2DBC for real-time streams. Schema-per-tenant PostgreSQL multi-tenancy.</span>
+      <div class="cap-card">
+        <span class="cap-category">Backend</span>
+        <span class="cap-name">Spring Boot · Java · Kotlin</span>
+        <span class="cap-desc">JPA for transactional logic, R2DBC for real-time streams. Schema-per-tenant PostgreSQL multi-tenancy.</span>
       </div>
 
-      <div class="stack-item">
-        <span class="stack-category">AI Layer</span>
-        <span class="stack-name">FastAPI + Ollama + Vanna AI</span>
-        <span class="stack-desc">Local LLM inference (Mistral/Phi-3), ChromaDB for RAG, Vanna AI for Natural Language to SQL. Fully offline, zero cloud dependency.</span>
+      <div class="cap-card">
+        <span class="cap-category">AI Layer</span>
+        <span class="cap-name">FastAPI + Ollama + Vanna AI</span>
+        <span class="cap-desc">Local LLM inference, ChromaDB for RAG, and Natural Language to SQL capabilities in offline-first environments.</span>
       </div>
 
-      <div class="stack-item">
-        <span class="stack-category">Languages</span>
-        <span class="stack-name">Kotlin · Java · Python · C# · JS</span>
-        <span class="stack-desc">Polyglot — right tool for each layer of the stack.</span>
+      <div class="cap-card">
+        <span class="cap-category">Languages</span>
+        <span class="cap-name">Kotlin · Java · Python · C# · JavaScript</span>
+        <span class="cap-desc">Polyglot implementation across application, integration, and AI enablement layers.</span>
       </div>
 
-      <div class="stack-item">
-        <span class="stack-category">Cloud &amp; Infra</span>
-        <span class="stack-name">AWS · Azure · GCP · Docker</span>
-        <span class="stack-desc">Multi-cloud experience. Kubernetes for orchestration. Docker Compose for offline-first dev environments.</span>
+      <div class="cap-card">
+        <span class="cap-category">Cloud &amp; Infra</span>
+        <span class="cap-name">AWS · Azure · GCP · Docker</span>
+        <span class="cap-desc">Multi-cloud familiarity, containerized delivery, orchestration, and offline-first development environments.</span>
       </div>
 
-      <div class="stack-item">
-        <span class="stack-category">Enterprise</span>
-        <span class="stack-name">ERP · OSS/BSS · IoT</span>
-        <span class="stack-desc">Custom ERP, telecom billing, GSM/GPS telemetry, RFID integration.</span>
+      <div class="cap-card">
+        <span class="cap-category">Enterprise</span>
+        <span class="cap-name">ERP · OSS/BSS · IoT</span>
+        <span class="cap-desc">Enterprise systems, telecom billing, GSM/GPS telemetry, RFID integration, and custom operational platforms.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities">
+    <div class="section-header reveal">
+      <span class="section-num">04 —</span>
+      <h2 class="section-title">Capabilities</h2>
+    </div>
+
+    <div class="cap-grid reveal">
+      <div class="cap-card">
+        <span class="cap-category">Program Leadership</span>
+        <span class="cap-name">End-to-End Delivery Ownership</span>
+        <span class="cap-desc">Project leadership, lifecycle management, deliverable oversight, and execution discipline across complex transformation initiatives.</span>
+      </div>
+
+      <div class="cap-card">
+        <span class="cap-category">Stakeholder Management</span>
+        <span class="cap-name">Cross-Functional Alignment</span>
+        <span class="cap-desc">Stakeholder engagement, executive communication, cross-functional collaboration, and conflict resolution across business and technical teams.</span>
+      </div>
+
+      <div class="cap-card">
+        <span class="cap-category">Transformation</span>
+        <span class="cap-name">Change &amp; Process Improvement</span>
+        <span class="cap-desc">Change management, process improvement, agile transformation, and strategic planning to improve delivery maturity and business responsiveness.</span>
+      </div>
+
+      <div class="cap-card">
+        <span class="cap-category">Governance</span>
+        <span class="cap-name">Risk, Scope &amp; Quality Control</span>
+        <span class="cap-desc">Risk mitigation, scope management, quality assurance, status reporting, and operational governance for large-scale initiatives.</span>
+      </div>
+
+      <div class="cap-card">
+        <span class="cap-category">Performance</span>
+        <span class="cap-name">KPI &amp; Delivery Monitoring</span>
+        <span class="cap-desc">Performance tracking, milestone control, and measurable delivery monitoring to ensure outcomes stay aligned with business priorities.</span>
+      </div>
+
+      <div class="cap-card">
+        <span class="cap-category">Organizational Maturity</span>
+        <span class="cap-name">Continuous Improvement Frameworks</span>
+        <span class="cap-desc">Skill maturity assessment, organizational maturity models, and continuous improvement practices to strengthen long-term capability.</span>
       </div>
     </div>
   </section>
 
   <section id="projects">
     <div class="section-header reveal">
-      <span class="section-num">04 —</span>
+      <span class="section-num">05 —</span>
       <h2 class="section-title">Projects</h2>
     </div>
 
@@ -1026,7 +1076,7 @@
 
   <section id="publications">
     <div class="section-header reveal">
-      <span class="section-num">05 —</span>
+      <span class="section-num">06 —</span>
       <h2 class="section-title">Publications</h2>
     </div>
 
@@ -1073,7 +1123,7 @@
 
   <section id="contact">
     <div class="section-header reveal">
-      <span class="section-num">06 —</span>
+      <span class="section-num">07 —</span>
       <h2 class="section-title">Contact</h2>
     </div>
 
