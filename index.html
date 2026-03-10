@@ -4,308 +4,1134 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heri Setia Wardoyo — Technical Program Manager & Architect</title>
+  <meta
+    name="description"
+    content="Heri Setia Wardoyo — Technical Program Manager and Enterprise Architect. Portfolio covering digital transformation, enterprise systems, and AI-based ERP development."
+  />
+  <meta name="theme-color" content="#0a0a0f" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     :root {
-      --bg: #0a0a0f; --surface: #111118; --border: #1e1e2e;
-      --accent: #e8c97e; --accent2: #7eb8e8;
-      --text: #e8e6e0; --muted: #6b6880;
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --accent: #e8c97e;
+      --accent2: #7eb8e8;
+      --text: #e8e6e0;
+      --muted: #6b6880;
+
       --serif: 'DM Serif Display', Georgia, serif;
       --mono: 'DM Mono', monospace;
       --sans: 'DM Sans', sans-serif;
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
     body::before {
-      content: ''; position: fixed; inset: 0;
+      content: '';
+      position: fixed;
+      inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 9999; opacity: 0.4;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    a {
+      color: inherit;
     }
 
     /* Hero */
-    .hero { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; padding: clamp(2rem,5vw,4rem); position: relative; border-bottom: 1px solid var(--border); }
-    .hero::after { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,201,126,0.06) 0%, transparent 70%); pointer-events: none; }
-    .nav { display: flex; justify-content: space-between; align-items: center; opacity: 0; animation: fadeUp 0.8s 0.1s forwards; }
-    .nav-logo { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
-    .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 4rem 0 2rem; }
-    .hero-label { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
-    .hero-name { font-family: var(--serif); font-size: clamp(3.5rem,9vw,8rem); line-height: 0.92; letter-spacing: -0.02em; opacity: 0; animation: fadeUp 0.8s 0.3s forwards; }
-    .hero-name em { font-style: italic; color: var(--accent); }
-    .hero-tagline { margin-top: 2.5rem; font-size: clamp(0.95rem,1.8vw,1.15rem); color: var(--muted); max-width: 560px; line-height: 1.7; opacity: 0; animation: fadeUp 0.8s 0.45s forwards; }
-    .hero-cta { margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
-    .btn { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.75rem 1.75rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
-    .btn-primary { background: var(--accent); color: #0a0a0f; border: 1px solid var(--accent); }
-    .btn-primary:hover { background: transparent; color: var(--accent); }
-    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
-    .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
-    .hero-footer { display: flex; justify-content: space-between; align-items: flex-end; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
-    .location { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; }
-    .scroll-hint { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; }
-    .scroll-line { width: 40px; height: 1px; background: var(--muted); animation: scrollLine 2s ease-in-out infinite; }
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: clamp(2rem, 5vw, 4rem);
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232, 201, 126, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s forwards;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0 2rem;
+    }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      margin-top: 2.5rem;
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.45s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.75rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0f;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--muted);
+      color: var(--text);
+    }
+
+    .hero-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+
+    .location {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .scroll-hint {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--muted);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
 
     /* Sections */
-    section { padding: clamp(4rem,8vw,7rem) clamp(2rem,5vw,4rem); border-bottom: 1px solid var(--border); }
-    .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
-    .section-num { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); letter-spacing: 0.2em; }
-    .section-title { font-family: var(--serif); font-size: clamp(2rem,4vw,3.5rem); line-height: 1; letter-spacing: -0.02em; }
+    section {
+      padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
 
     /* About */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
-    .about-text p { font-size: 1.05rem; line-height: 1.8; color: #b8b4ae; margin-bottom: 1.2rem; }
-    .about-text p strong { color: var(--text); font-weight: 500; }
-    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-content: start; }
-    .stat-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; border-radius: 4px; transition: border-color 0.2s; }
-    .stat-card:hover { border-color: var(--accent); }
-    .stat-num { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
-    .stat-label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #b8b4ae;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-content: start;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent);
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
     /* Experience */
-    .exp-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-    .exp-item { background: var(--surface); padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; transition: background 0.2s; }
-    .exp-item:hover { background: #13131b; }
-    .exp-role { font-size: 1.05rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
-    .exp-company { font-family: var(--mono); font-size: 0.7rem; color: var(--accent2); letter-spacing: 0.08em; margin-bottom: 0.75rem; }
-    .exp-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; max-width: 640px; }
-    .exp-period { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); white-space: nowrap; text-align: right; }
-    .exp-sector { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
-    .tag { font-family: var(--mono); font-size: 0.58rem; padding: 0.2rem 0.6rem; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); letter-spacing: 0.06em; }
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .exp-item {
+      background: var(--surface);
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      transition: background 0.2s;
+    }
+
+    .exp-item:hover {
+      background: #13131b;
+    }
+
+    .exp-role {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-company {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 640px;
+    }
+
+    .exp-period {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .exp-sector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
 
     /* Stack */
-    .stack-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-    .stack-item { background: var(--surface); padding: 1.75rem; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
-    .stack-item:hover { background: #16161f; }
-    .stack-category { font-family: var(--mono); font-size: 0.6rem; color: var(--accent2); letter-spacing: 0.2em; text-transform: uppercase; }
-    .stack-name { font-size: 1rem; color: var(--text); font-weight: 500; }
-    .stack-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .stack-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .stack-item {
+      background: var(--surface);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: background 0.2s;
+      min-width: 0;
+    }
+
+    .stack-item:hover {
+      background: #16161f;
+    }
+
+    .stack-category {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--accent2);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .stack-name {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .stack-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
 
     /* Projects */
-    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; transition: border-color 0.2s, transform 0.2s; margin-bottom: 1px; }
-    .project-card:hover { border-color: var(--accent); transform: translateX(4px); }
-    .project-tag { font-family: var(--mono); font-size: 0.6rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
-    .project-name { font-family: var(--serif); font-size: 1.6rem; color: var(--text); margin-bottom: 0.75rem; letter-spacing: -0.01em; }
-    .project-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; max-width: 600px; }
-    .project-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
-    .pill { font-family: var(--mono); font-size: 0.62rem; padding: 0.3rem 0.75rem; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); letter-spacing: 0.08em; }
-    .project-status { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 0.4rem; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf7d; animation: pulse 2s ease-in-out infinite; }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      margin-bottom: 1px;
+    }
 
-    /* Publication */
-    .pub-card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 4px; padding: 2rem 2.5rem; }
-    .pub-venue { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; }
-    .pub-title { font-size: 1rem; color: var(--text); font-weight: 500; line-height: 1.5; margin-bottom: 0.5rem; }
-    .pub-authors { font-size: 0.82rem; color: var(--muted); }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .project-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .project-status {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4caf7d;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Publications */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pub-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 2rem 2.5rem;
+    }
+
+    .pub-venue {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .pub-title {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .pub-doi {
+      display: inline-block;
+      margin-top: 0.7rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent2);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .pub-doi:hover {
+      color: var(--accent);
+    }
 
     /* Contact */
-    .contact-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));gap: 1px;background: var(--border);border: 1px solid var(--border);border-radius: 4px;overflow: hidden;}
-    .contact-item {background: var(--surface);padding: 2rem;text-decoration: none;display: flex;flex-direction: column;gap: 0.4rem;transition: background 0.2s;min-width: 0;}
-    .contact-item:hover { background: #16161f; }
-    .contact-platform { font-family: var(--mono); font-size: 0.62rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; }
-    .contact-value {font-size: 0.95rem;color: var(--text);overflow-wrap: anywhere;word-break: break-word;}
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .contact-item {
+      background: var(--surface);
+      padding: 2rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: background 0.2s;
+      min-width: 0;
+    }
+
+    .contact-item:hover {
+      background: #16161f;
+    }
+
+    .contact-platform {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: var(--text);
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
 
     /* Footer */
-    footer { padding: clamp(2rem,4vw,3rem) clamp(2rem,5vw,4rem); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    footer p { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; }
+    footer {
+      padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
 
     /* Animations */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes scrollLine { 0%,100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(0.3); opacity: 0.4; } }
-    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
-    .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .js-ready .reveal { opacity: 0; transform: translateY(24px); }
-    .js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (max-width: 600px) { .exp-item, .project-card { grid-template-columns: 1fr; } }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scrollLine {
+      0%, 100% {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scaleX(0.3);
+        opacity: 0.4;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .stack-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 1rem 1.25rem;
+        justify-content: flex-start;
+      }
+
+      .hero-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .exp-item {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-period {
+        text-align: left;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        gap: 0.75rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .project-card,
+      .pub-card,
+      .exp-item,
+      .contact-item {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal,
+      .js-ready .reveal,
+      .js-ready .reveal.visible {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
   </style>
 </head>
 <body>
+  <section class="hero">
+    <nav class="nav">
+      <span class="nav-logo">HSW // 2026</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-<section class="hero">
-  <nav class="nav">
-    <span class="nav-logo">HSW // 2026</span>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="hero-content">
-    <p class="hero-label">Technical Program Manager &amp; Enterprise Architect</p>
-    <h1 class="hero-name">Heri Setia<br/><em>Wardoyo</em></h1>
-    <p class="hero-tagline">
-      I speak both business and code — translating strategic objectives into systems that scale. From telecom billing to aviation commerce platforms to AI-powered ERP, I build things that move the needle.
-    </p>
-    <div class="hero-cta">
-      <a href="#experience" class="btn btn-primary">View Experience</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    <div class="hero-content">
+      <p class="hero-label">Technical Program Manager &amp; Enterprise Architect</p>
+      <h1 class="hero-name">Heri Setia<br /><em>Wardoyo</em></h1>
+      <p class="hero-tagline">
+        I speak both business and code — translating strategic objectives into systems that scale.
+        From telecom billing to aviation commerce platforms to AI-powered ERP, I build things that move the needle.
+      </p>
+      <div class="hero-cta">
+        <a href="#experience" class="btn btn-primary">View Experience</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
     </div>
-  </div>
 
-  <div class="hero-footer">
-    <span class="location">📍 Bandung, Indonesia</span>
-    <span class="scroll-hint"><span class="scroll-line"></span>Scroll</span>
-  </div>
-</section>
-
-<!-- About -->
-<section id="about">
-  <div class="section-header reveal">
-    <span class="section-num">01 —</span>
-    <h2 class="section-title">About</h2>
-  </div>
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <p>I design and build systems at the intersection of <strong>business strategy and software engineering</strong>. Most engineers build what they're told. I start from the business problem — understanding the workflows, the decisions, the pain — then architect a solution that fits.</p>
-      <p>Over 15+ years I've led digital transformation across <strong>telecom, aviation, banking, government, and logistics</strong> — managing cross-continental teams and delivering systems used by hundreds of thousands of end users.</p>
-      <p>Currently building <strong>Enigra</strong> — an AI-based ERP for SMEs, designed from real business process understanding. Fully offline, no cloud dependency, with AI that assists decisions without replacing human judgment.</p>
+    <div class="hero-footer">
+      <span class="location">📍 Bandung, Indonesia</span>
+      <span class="scroll-hint"><span class="scroll-line"></span>Scroll</span>
     </div>
-    <div class="stats-grid reveal">
-      <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Years in Tech</div></div>
-      <div class="stat-card"><div class="stat-num">20+</div><div class="stat-label">Engineers Led</div></div>
-      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Industries Served</div></div>
-      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Continents</div></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Experience -->
-<section id="experience">
-  <div class="section-header reveal">
-    <span class="section-num">02 —</span>
-    <h2 class="section-title">Experience</h2>
-  </div>
-  <div class="exp-list reveal">
-    <div class="exp-item">
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-num">01 —</span>
+      <h2 class="section-title">About</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I design and build systems at the intersection of <strong>business strategy and software engineering</strong>.
+          Most engineers build what they are told. I start from the business problem — understanding the workflows,
+          the decisions, the pain — then architect a solution that fits.
+        </p>
+        <p>
+          Over 15+ years I have led digital transformation across <strong>telecom, aviation, banking, government, and logistics</strong>
+          — managing cross-continental teams and delivering systems used by hundreds of thousands of end users.
+        </p>
+        <p>
+          Currently building <strong>Enigra</strong> — an AI-based ERP for SMEs, designed from real business process understanding.
+          Fully offline, no cloud dependency, with AI that assists decisions without replacing human judgment.
+        </p>
+      </div>
+
+      <div class="stats-grid reveal">
+        <div class="stat-card">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Years in Tech</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Engineers Led</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Industries Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Continents</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-header reveal">
+      <span class="section-num">02 —</span>
+      <h2 class="section-title">Experience</h2>
+    </div>
+
+    <div class="exp-list reveal">
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Technical Program Manager</div>
+          <div class="exp-company">Beyondsoft Consulting · Spain (Remote)</div>
+          <div class="exp-desc">
+            Led end-to-end transformation of Volotea's commercial and payment platforms — improving booking
+            experience and ancillary revenue. Managed 20+ engineers across APAC while coordinating stakeholders
+            in Europe. Delivered Ancillary Pricing Optimization, car rental booking, and PayPal Pay Later integration.
+          </div>
+          <div class="exp-sector">
+            <span class="tag">Aviation</span>
+            <span class="tag">Commerce Platform</span>
+            <span class="tag">Payment Systems</span>
+            <span class="tag">APAC Team Lead</span>
+          </div>
+        </div>
+        <div class="exp-period">07/2023 — 10/2025</div>
+      </div>
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Senior Technology Consultant</div>
+          <div class="exp-company">Deloitte Consulting · Indonesia (Hybrid)</div>
+          <div class="exp-desc">
+            Delivered UOB TMRW digital banking, drove BSI's agile transformation with structured maturity models,
+            digitized IBO Singapore's academic workflows, and enhanced MSF Singapore's citizen services through
+            legacy system integration.
+          </div>
+          <div class="exp-sector">
+            <span class="tag">Digital Banking</span>
+            <span class="tag">Agile Transformation</span>
+            <span class="tag">Government Services</span>
+            <span class="tag">LMS</span>
+          </div>
+        </div>
+        <div class="exp-period">02/2022 — 07/2023</div>
+      </div>
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Head of Software Development</div>
+          <div class="exp-company">AK IT Solutions · Netherlands (Remote)</div>
+          <div class="exp-desc">
+            Led end-to-end architecture for enterprise clients across Europe. Launched AKEAD ERP, built an IoT Fleet
+            Management System with real-time GSM/GPS telemetry, and deployed an RFID-based Sport Tracking System
+            for live athlete monitoring.
+          </div>
+          <div class="exp-sector">
+            <span class="tag">ERP</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Fleet Management</span>
+            <span class="tag">Europe</span>
+          </div>
+        </div>
+        <div class="exp-period">05/2020 — 02/2022</div>
+      </div>
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Founder &amp; CEO</div>
+          <div class="exp-company">Solusi Lintas Evolusi · Indonesia</div>
+          <div class="exp-desc">
+            Founded and scaled a tech firm serving logistics, maritime, and finance in Eastern Indonesia. Unified
+            30+ branches under a single ERP for HMF Multifinance with full OJK compliance and SLIK integration.
+            Built satellite-based fuel monitoring for tugboats and coal barges.
+          </div>
+          <div class="exp-sector">
+            <span class="tag">Fintech</span>
+            <span class="tag">Maritime</span>
+            <span class="tag">OJK Compliance</span>
+            <span class="tag">ERP</span>
+          </div>
+        </div>
+        <div class="exp-period">06/2011 — 03/2021</div>
+      </div>
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Telco Solution Consultant</div>
+          <div class="exp-company">Astra Graphia IT · Indonesia</div>
+          <div class="exp-desc">
+            Delivered pre-billing system integration for PT Telkom and supported Indosat Mega Media in optimizing
+            OSS/BSS architecture for billing precision and revenue assurance.
+          </div>
+          <div class="exp-sector">
+            <span class="tag">Telco</span>
+            <span class="tag">OSS/BSS</span>
+            <span class="tag">Billing</span>
+            <span class="tag">Revenue Assurance</span>
+          </div>
+        </div>
+        <div class="exp-period">07/2008 — 06/2011</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-header reveal">
+      <span class="section-num">03 —</span>
+      <h2 class="section-title">Tech Stack</h2>
+    </div>
+
+    <div class="stack-list reveal">
+      <div class="stack-item">
+        <span class="stack-category">Frontend</span>
+        <span class="stack-name">Kotlin Multiplatform</span>
+        <span class="stack-desc">Compose Multiplatform — Android, iOS, Desktop &amp; Web/Wasm from a single codebase.</span>
+      </div>
+
+      <div class="stack-item">
+        <span class="stack-category">Backend</span>
+        <span class="stack-name">Spring Boot · Java · Kotlin</span>
+        <span class="stack-desc">JPA for transactional logic, R2DBC for real-time streams. Schema-per-tenant PostgreSQL multi-tenancy.</span>
+      </div>
+
+      <div class="stack-item">
+        <span class="stack-category">AI Layer</span>
+        <span class="stack-name">FastAPI + Ollama + Vanna AI</span>
+        <span class="stack-desc">Local LLM inference (Mistral/Phi-3), ChromaDB for RAG, Vanna AI for Natural Language to SQL. Fully offline, zero cloud dependency.</span>
+      </div>
+
+      <div class="stack-item">
+        <span class="stack-category">Languages</span>
+        <span class="stack-name">Kotlin · Java · Python · C# · JS</span>
+        <span class="stack-desc">Polyglot — right tool for each layer of the stack.</span>
+      </div>
+
+      <div class="stack-item">
+        <span class="stack-category">Cloud &amp; Infra</span>
+        <span class="stack-name">AWS · Azure · GCP · Docker</span>
+        <span class="stack-desc">Multi-cloud experience. Kubernetes for orchestration. Docker Compose for offline-first dev environments.</span>
+      </div>
+
+      <div class="stack-item">
+        <span class="stack-category">Enterprise</span>
+        <span class="stack-name">ERP · OSS/BSS · IoT</span>
+        <span class="stack-desc">Custom ERP, telecom billing, GSM/GPS telemetry, RFID integration.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-num">04 —</span>
+      <h2 class="section-title">Projects</h2>
+    </div>
+
+    <div class="project-card reveal">
       <div>
-        <div class="exp-role">Technical Program Manager</div>
-        <div class="exp-company">Beyondsoft Consulting · Spain (Remote)</div>
-        <div class="exp-desc">Led end-to-end transformation of Volotea's commercial and payment platforms — improving booking experience and ancillary revenue. Managed 20+ engineers across APAC while coordinating stakeholders in Europe. Delivered Ancillary Pricing Optimization, car rental booking, and PayPal Pay Later integration.</div>
-        <div class="exp-sector"><span class="tag">Aviation</span><span class="tag">Commerce Platform</span><span class="tag">Payment Systems</span><span class="tag">APAC Team Lead</span></div>
+        <p class="project-tag">Current — 2026</p>
+        <h3 class="project-name">Enigra ERP</h3>
+        <p class="project-desc">
+          A full-featured AI-based ERP for SMEs — built from real business process understanding across Finance,
+          Inventory, HRM, and Sales. AI capabilities include Natural Language Queries, anomaly detection, document
+          enrichment, and demand forecasting. Fully offline with local LLM inference.
+        </p>
+        <div class="project-pills">
+          <span class="pill">Kotlin KMP</span>
+          <span class="pill">Spring Boot</span>
+          <span class="pill">FastAPI</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">Ollama</span>
+          <span class="pill">ChromaDB</span>
+          <span class="pill">vanna.ai</span>
+          <span class="pill">Offline-first AI</span>
+        </div>
       </div>
-      <div class="exp-period">07/2023 — 10/2025</div>
+      <div class="project-status"><span class="dot"></span>In Development</div>
     </div>
-    <div class="exp-item">
-      <div>
-        <div class="exp-role">Senior Technology Consultant</div>
-        <div class="exp-company">Deloitte Consulting · Indonesia (Hybrid)</div>
-        <div class="exp-desc">Delivered UOB TMRW digital banking, drove BSI's agile transformation with structured maturity models, digitized IBO Singapore's academic workflows, and enhanced MSF Singapore's citizen services through legacy system integration.</div>
-        <div class="exp-sector"><span class="tag">Digital Banking</span><span class="tag">Agile Transformation</span><span class="tag">Government Services</span><span class="tag">LMS</span></div>
-      </div>
-      <div class="exp-period">02/2022 — 07/2023</div>
-    </div>
-    <div class="exp-item">
-      <div>
-        <div class="exp-role">Head of Software Development</div>
-        <div class="exp-company">AK IT Solutions · Netherlands (Remote)</div>
-        <div class="exp-desc">Led end-to-end architecture for enterprise clients across Europe. Launched AKEAD ERP, built an IoT Fleet Management System with real-time GSM/GPS telemetry, and deployed an RFID-based Sport Tracking System for live athlete monitoring.</div>
-        <div class="exp-sector"><span class="tag">ERP</span><span class="tag">IoT</span><span class="tag">Fleet Management</span><span class="tag">Europe</span></div>
-      </div>
-      <div class="exp-period">05/2020 — 02/2022</div>
-    </div>
-    <div class="exp-item">
-      <div>
-        <div class="exp-role">Founder &amp; CEO</div>
-        <div class="exp-company">Solusi Lintas Evolusi · Indonesia</div>
-        <div class="exp-desc">Founded and scaled a tech firm serving logistics, maritime, and finance in Eastern Indonesia. Unified 30+ branches under a single ERP for HMF Multifinance with full OJK compliance and SLIK integration. Built satellite-based fuel monitoring for tugboats and coal barges.</div>
-        <div class="exp-sector"><span class="tag">Fintech</span><span class="tag">Maritime</span><span class="tag">OJK Compliance</span><span class="tag">ERP</span></div>
-      </div>
-      <div class="exp-period">06/2011 — 03/2021</div>
-    </div>
-    <div class="exp-item">
-      <div>
-        <div class="exp-role">Telco Solution Consultant</div>
-        <div class="exp-company">Astra Graphia IT · Indonesia</div>
-        <div class="exp-desc">Delivered pre-billing system integration for PT Telkom and supported Indosat Mega Media in optimizing OSS/BSS architecture for billing precision and revenue assurance.</div>
-        <div class="exp-sector"><span class="tag">Telco</span><span class="tag">OSS/BSS</span><span class="tag">Billing</span><span class="tag">Revenue Assurance</span></div>
-      </div>
-      <div class="exp-period">07/2008 — 06/2011</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Stack -->
-<section id="stack">
-  <div class="section-header reveal">
-    <span class="section-num">03 —</span>
-    <h2 class="section-title">Tech Stack</h2>
-  </div>
-  <div class="stack-list reveal">
-    <div class="stack-item"><span class="stack-category">Frontend</span><span class="stack-name">Kotlin Multiplatform</span><span class="stack-desc">Compose Multiplatform — Android, iOS, Desktop &amp; Web/Wasm from a single codebase.</span></div>
-    <div class="stack-item"><span class="stack-category">Backend</span><span class="stack-name">Spring Boot · Java · Kotlin</span><span class="stack-desc">JPA for transactional logic, R2DBC for real-time streams. Schema-per-tenant PostgreSQL multi-tenancy.</span></div>
-    <div class="stack-item"><span class="stack-category">AI Layer</span><span class="stack-name">FastAPI + Ollama + Vanna AI</span><span class="stack-desc">Local LLM inference (Mistral/Phi-3), ChromaDB for RAG, Vanna AI for Natural Language to SQL. Fully offline, zero cloud dependency.</span></div>
-    <div class="stack-item"><span class="stack-category">Languages</span><span class="stack-name">Kotlin · Java · Python · C# · JS</span><span class="stack-desc">Polyglot — right tool for each layer of the stack.</span></div>
-    <div class="stack-item"><span class="stack-category">Cloud &amp; Infra</span><span class="stack-name">AWS · Azure · GCP · Docker</span><span class="stack-desc">Multi-cloud experience. Kubernetes for orchestration. Docker Compose for offline-first dev environments.</span></div>
-    <div class="stack-item"><span class="stack-category">Enterprise</span><span class="stack-name">ERP · OSS/BSS · IoT</span><span class="stack-desc">Custom ERP, telecom billing, GSM/GPS telemetry, RFID integration.</span></div>
-  </div>
-</section>
+  <section id="publications">
+    <div class="section-header reveal">
+      <span class="section-num">05 —</span>
+      <h2 class="section-title">Publications</h2>
+    </div>
 
-<!-- Projects -->
-<section id="projects">
-  <div class="section-header reveal">
-    <span class="section-num">04 —</span>
-    <h2 class="section-title">Projects</h2>
-  </div>
-  <div class="project-card reveal">
-    <div>
-      <p class="project-tag">Current — 2026</p>
-      <h3 class="project-name">Enigra ERP</h3>
-      <p class="project-desc">A full-featured AI-based ERP for SMEs — built from real business process understanding across Finance, Inventory, HRM, and Sales. AI capabilities include Natural Language Queries, anomaly detection, document enrichment, and demand forecasting. Fully offline with local LLM inference.</p>
-      <div class="project-pills">
-        <span class="pill">Kotlin KMP</span><span class="pill">Spring Boot</span><span class="pill">FastAPI</span>
-        <span class="pill">PostgreSQL</span><span class="pill">Ollama</span><span class="pill">ChromaDB</span><span class="pill">vanna.ai</span><span class="pill">Offline-first AI</span>
+    <div class="pub-list">
+      <div class="pub-card reveal">
+        <div class="pub-venue">Italian Journal of Marketing · 2026</div>
+        <div class="pub-title">
+          Trust-mediated green brand evangelism: examining boundary conditions in Indonesian collectivistic consumer markets
+        </div>
+        <div class="pub-authors">
+          Arry Widodo, Putu Nina Madiawati, Heri Setia Wardoyo, &amp; Azhar Affandi
+        </div>
+        <a
+          class="pub-doi"
+          href="https://doi.org/10.1007/s43039-026-00130-8"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="DOI link for Trust-mediated green brand evangelism"
+        >
+          DOI: 10.1007/s43039-026-00130-8
+        </a>
+      </div>
+
+      <div class="pub-card reveal">
+        <div class="pub-venue">IEEE ICONDBTM 2024</div>
+        <div class="pub-title">
+          Enhancing Competitive Advantage Through Digital Leadership, Innovation, Organizational Culture, and Hybrid Work Model
+        </div>
+        <div class="pub-authors">
+          Wardoyo, H. S., &amp; Madiawati, P. N.
+        </div>
+        <a
+          class="pub-doi"
+          href="https://doi.org/10.1109/ICONDBTM64135.2024.11122838"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="DOI link for Enhancing Competitive Advantage Through Digital Leadership, Innovation, Organizational Culture, and Hybrid Work Model"
+        >
+          DOI: 10.1109/ICONDBTM64135.2024.11122838
+        </a>
       </div>
     </div>
-    <div class="project-status"><span class="dot"></span>In Development</div>
-  </div>
+  </section>
 
-  <div style="margin-top: 3rem;">
-    <p style="font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">Publication</p>
-    <div class="pub-card reveal">
-      <div class="pub-venue">IEEE ICONDBTM 2024</div>
-      <div class="pub-title">Enhancing Competitive Advantage Through Digital Leadership, Innovation, Organizational Culture, and Hybrid Work Model</div>
-      <div class="pub-authors">Wardoyo, H. S., &amp; Madiawati, P. N. · doi: 10.1109/ICONDBTM64135.2024.11122838</div>
+  <section id="contact">
+    <div class="section-header reveal">
+      <span class="section-num">06 —</span>
+      <h2 class="section-title">Contact</h2>
     </div>
-  </div>
-</section>
 
-<!-- Contact -->
-<section id="contact">
-  <div class="section-header reveal">
-    <span class="section-num">05 —</span>
-    <h2 class="section-title">Contact</h2>
-  </div>
-  <div class="contact-grid reveal">
-    <a href="mailto:herisetiawardoyo@gmail.com" class="contact-item">
-	  <span class="contact-platform">Email</span>
-	  <span class="contact-value">herisetiawardoyo@gmail.com</span>
-	</a>
-    <a href="https://linkedin.com/in/herisetiawardoyo" target="_blank" class="contact-item">
-      <span class="contact-platform">LinkedIn</span>
-      <span class="contact-value">linkedin.com/in/herisetiawardoyo</span>
-    </a>
-    <a href="https://github.com/herisetiawardoyo" target="_blank" class="contact-item">
-      <span class="contact-platform">GitHub</span>
-      <span class="contact-value">github.com/herisetiawardoyo</span>
-    </a>
-    <a href="tel:+628112361000" class="contact-item">
-      <span class="contact-platform">Phone</span>
-      <span class="contact-value">+62-811-236-1000</span>
-    </a>
-  </div>
-</section>
+    <div class="contact-grid reveal">
+      <a href="mailto:herisetiawardoyo@gmail.com" class="contact-item" aria-label="Email Heri Setia Wardoyo">
+        <span class="contact-platform">Email</span>
+        <span class="contact-value">herisetiawardoyo@gmail.com</span>
+      </a>
 
-<footer>
-  <p>© 2026 Heri Setia Wardoyo · Bandung, Indonesia</p>
-  <p>Built with HTML · Hosted on GitHub Pages</p>
-</footer>
+      <a
+        href="https://linkedin.com/in/herisetiawardoyo"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-item"
+        aria-label="LinkedIn profile"
+      >
+        <span class="contact-platform">LinkedIn</span>
+        <span class="contact-value">linkedin.com/in/herisetiawardoyo</span>
+      </a>
 
-<script>
-  document.documentElement.classList.add('js-ready');
-  const observer = new IntersectionObserver(entrie
+      <a
+        href="https://github.com/herisetiawardoyo"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-item"
+        aria-label="GitHub profile"
+      >
+        <span class="contact-platform">GitHub</span>
+        <span class="contact-value">github.com/herisetiawardoyo</span>
+      </a>
+
+      <a href="tel:+628112361000" class="contact-item" aria-label="Phone number">
+        <span class="contact-platform">Phone</span>
+        <span class="contact-value">+62-811-236-1000</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Heri Setia Wardoyo · Bandung, Indonesia</p>
+    <p>Built with HTML · Hosted on GitHub Pages</p>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add('js-ready');
+
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
