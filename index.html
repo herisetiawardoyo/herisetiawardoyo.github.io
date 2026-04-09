@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,20 +18,24 @@
   />
   <meta name="theme-color" content="#0a0a0f" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <!-- Preconnect for faster font loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
     rel="stylesheet"
+    media="all"
   />
 
   <style>
+    /* Reset */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    /* Design tokens */
     :root {
       --bg: #0a0a0f;
       --surface: #111118;
@@ -40,9 +45,10 @@
       --text: #e8e6e0;
       --muted: #6b6880;
 
-      --serif: 'DM Serif Display', Georgia, serif;
-      --mono: 'DM Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
+      /* Font stacks with reliable fallbacks */
+      --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+      --mono: 'DM Mono', 'Courier New', Courier, monospace;
+      --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     }
 
     html {
@@ -55,23 +61,28 @@
       font-family: var(--sans);
       font-weight: 300;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
+    /* Subtle grain overlay — using CSS only, no SVG filter that can break */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-image:
+        url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4t5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92ZGYLaMoH0UCkLb13mDFt2miUu9oL3d1alpEClFZkQaa5ZaftRS+CFcBAvKedyKAxa98zckSJ0I231WLKyMRkibngT8wGjFAELECmGCLFR0aWqIAEoEpYAoA3IEu2AUAW0EB0YF8AAA==");
+      opacity: 0.03;
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.4;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    /* Hero */
+    /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -121,7 +132,6 @@
       font-family: var(--mono);
       font-size: 0.7rem;
       color: var(--muted);
-      text-decoration: none;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: color 0.2s;
@@ -189,8 +199,8 @@
       text-transform: uppercase;
       padding: 0.75rem 1.75rem;
       border-radius: 2px;
-      text-decoration: none;
       transition: all 0.2s;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -250,7 +260,7 @@
       animation: scrollLine 2s ease-in-out infinite;
     }
 
-    /* Sections */
+    /* ─── SECTIONS ─── */
     section {
       padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 4rem);
       border-bottom: 1px solid var(--border);
@@ -269,6 +279,7 @@
       font-size: 0.65rem;
       color: var(--accent);
       letter-spacing: 0.2em;
+      flex-shrink: 0;
     }
 
     .section-title {
@@ -278,11 +289,12 @@
       letter-spacing: -0.02em;
     }
 
-    /* About */
+    /* ─── ABOUT ─── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
+      align-items: start;
     }
 
     .about-text p {
@@ -332,7 +344,7 @@
       text-transform: uppercase;
     }
 
-    /* Experience */
+    /* ─── EXPERIENCE ─── */
     .exp-list {
       display: flex;
       flex-direction: column;
@@ -403,7 +415,7 @@
       letter-spacing: 0.06em;
     }
 
-    /* Shared capability grid */
+    /* ─── CAPABILITY GRID ─── */
     .cap-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -448,7 +460,13 @@
       line-height: 1.5;
     }
 
-    /* Projects */
+    /* ─── PROJECTS ─── */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -458,7 +476,6 @@
       grid-template-columns: 1fr auto;
       gap: 1.5rem;
       transition: border-color 0.2s, transform 0.2s;
-      margin-bottom: 1px;
     }
 
     .project-card:hover {
@@ -513,8 +530,9 @@
       color: var(--muted);
       white-space: nowrap;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.4rem;
+      padding-top: 0.2rem;
     }
 
     .dot {
@@ -522,10 +540,17 @@
       height: 6px;
       border-radius: 50%;
       background: #4caf7d;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
       animation: pulse 2s ease-in-out infinite;
     }
 
-    /* Publications */
+    .dot.inactive {
+      background: var(--muted);
+      animation: none;
+    }
+
+    /* ─── PUBLICATIONS ─── */
     .pub-list {
       display: flex;
       flex-direction: column;
@@ -569,15 +594,15 @@
       font-family: var(--mono);
       font-size: 0.72rem;
       color: var(--accent2);
-      text-decoration: none;
       word-break: break-word;
+      transition: color 0.2s;
     }
 
     .pub-doi:hover {
       color: var(--accent);
     }
 
-    /* Contact */
+    /* ─── CONTACT ─── */
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -591,7 +616,6 @@
     .contact-item {
       background: var(--surface);
       padding: 2rem;
-      text-decoration: none;
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
@@ -618,7 +642,7 @@
       word-break: break-word;
     }
 
-    /* Footer */
+    /* ─── FOOTER ─── */
     footer {
       padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
       display: flex;
@@ -635,40 +659,23 @@
       letter-spacing: 0.08em;
     }
 
-    /* Animations */
+    /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes scrollLine {
-      0%, 100% {
-        transform: scaleX(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scaleX(0.3);
-        opacity: 0.4;
-      }
+      0%, 100% { transform: scaleX(1); opacity: 1; }
+      50%       { transform: scaleX(0.3); opacity: 0.4; }
     }
 
     @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 0.5;
-        transform: scale(0.8);
-      }
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
     }
 
+    /* Scroll reveal */
     .reveal {
       opacity: 1;
       transform: translateY(0);
@@ -685,7 +692,7 @@
       transform: translateY(0);
     }
 
-    /* Responsive */
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 980px) {
       .about-grid {
         grid-template-columns: 1fr;
@@ -698,6 +705,11 @@
 
       .project-card {
         grid-template-columns: 1fr;
+      }
+
+      .project-status {
+        flex-direction: row;
+        align-items: center;
       }
     }
 
@@ -732,7 +744,7 @@
 
     @media (max-width: 640px) {
       .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
       }
 
       .cap-grid {
@@ -751,12 +763,14 @@
       .cap-card {
         padding: 1.5rem;
       }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
+      html { scroll-behavior: auto; }
 
       *, *::before, *::after {
         animation: none !important;
@@ -773,6 +787,8 @@
   </style>
 </head>
 <body>
+
+  <!-- ─── HERO ─── -->
   <section class="hero">
     <nav class="nav">
       <span class="nav-logo">HSW // 2026</span>
@@ -807,6 +823,7 @@
     </div>
   </section>
 
+  <!-- ─── ABOUT ─── -->
   <section id="about">
     <div class="section-header reveal">
       <span class="section-num">01 —</span>
@@ -821,18 +838,18 @@
           translate complexity into practical systems and measurable outcomes.
         </p>
         <p>
-          Over 15+ years I have led transformation initiatives across <strong>telecom, aviation, banking, government, logistics, and enterprise platforms</strong>,
+          Over 17+ years I have led transformation initiatives across <strong>telecom, aviation, banking, government, logistics, and maritime</strong>,
           managing cross-functional teams and aligning delivery with operational and strategic goals.
         </p>
         <p>
-          Currently building <strong>Enigra</strong> — an offline-first, AI-enabled ERP for SMEs, designed from real business process understanding
-          and built to support better decisions without removing human judgment.
+          Currently applying that experience to <strong>strategic product initiatives</strong> in risk audit, enterprise AI analytics,
+          and digital learning — building solutions from real domain knowledge, not abstraction.
         </p>
       </div>
 
       <div class="stats-grid reveal">
         <div class="stat-card">
-          <div class="stat-num">15+</div>
+          <div class="stat-num">17+</div>
           <div class="stat-label">Years in Tech</div>
         </div>
         <div class="stat-card">
@@ -840,7 +857,7 @@
           <div class="stat-label">Engineers Led</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">5</div>
+          <div class="stat-num">6</div>
           <div class="stat-label">Industries Served</div>
         </div>
         <div class="stat-card">
@@ -851,6 +868,7 @@
     </div>
   </section>
 
+  <!-- ─── EXPERIENCE ─── -->
   <section id="experience">
     <div class="section-header reveal">
       <span class="section-num">02 —</span>
@@ -863,9 +881,9 @@
           <div class="exp-role">Technical Program Manager</div>
           <div class="exp-company">Beyondsoft Consulting · Spain (Remote)</div>
           <div class="exp-desc">
-            Led end-to-end transformation of Volotea's commercial and payment platforms — improving booking
-            experience and ancillary revenue. Managed 20+ engineers across APAC while coordinating stakeholders
-            in Europe. Delivered Ancillary Pricing Optimization, car rental booking, and PayPal Pay Later integration.
+            Led the modernization of commercial and payment platforms for a European airline, aligning monetization
+            priorities, customer experience improvement, and cross-region delivery execution across APAC and Europe.
+            Delivered Ancillary Pricing Optimization, Cars in Mobile, and PayPal Pay Later integration.
           </div>
           <div class="exp-sector">
             <span class="tag">Aviation</span>
@@ -882,9 +900,9 @@
           <div class="exp-role">Senior Technology Consultant</div>
           <div class="exp-company">Deloitte Consulting · Indonesia (Hybrid)</div>
           <div class="exp-desc">
-            Delivered UOB TMRW digital banking, drove BSI's agile transformation with structured maturity models,
-            digitized IBO Singapore's academic workflows, and enhanced MSF Singapore's citizen services through
-            legacy system integration.
+            Delivered multi-sector transformation initiatives across banking, education, and public services — including
+            UOB TMRW digital banking, BSI agile transformation, IBO Singapore LMS digitization, and MSF Singapore
+            citizen service integration.
           </div>
           <div class="exp-sector">
             <span class="tag">Digital Banking</span>
@@ -901,9 +919,9 @@
           <div class="exp-role">Head of Software Development</div>
           <div class="exp-company">AK IT Solutions · Netherlands (Remote)</div>
           <div class="exp-desc">
-            Led end-to-end architecture for enterprise clients across Europe. Launched AKEAD ERP, built an IoT Fleet
-            Management System with real-time GSM/GPS telemetry, and deployed an RFID-based Sport Tracking System
-            for live athlete monitoring.
+            Led architecture and delivery for enterprise application modernization across European clients — including
+            AKEAD ERP rollout, an IoT fleet management platform with real-time GSM/GPS telemetry for a Turkish
+            transport operator, and an RFID-based sports tracking platform for a Dutch client.
           </div>
           <div class="exp-sector">
             <span class="tag">ERP</span>
@@ -920,8 +938,8 @@
           <div class="exp-role">Founder &amp; CEO</div>
           <div class="exp-company">Solusi Lintas Evolusi · Indonesia</div>
           <div class="exp-desc">
-            Founded and scaled a tech firm serving logistics, maritime, and finance in Eastern Indonesia. Unified
-            30+ branches under a single ERP for HMF Multifinance with full OJK compliance and SLIK integration.
+            Founded and scaled a technology firm serving logistics, maritime, and finance in Eastern Indonesia.
+            Unified 30+ branches under a single OJK-compliant ERP for HMF Multifinance with full SLIK integration.
             Built satellite-based fuel monitoring for tugboats and coal barges.
           </div>
           <div class="exp-sector">
@@ -954,6 +972,7 @@
     </div>
   </section>
 
+  <!-- ─── TECHNOLOGY ─── -->
   <section id="stack">
     <div class="section-header reveal">
       <span class="section-num">03 —</span>
@@ -971,7 +990,7 @@
 
       <div class="cap-card">
         <span class="cap-category">Frameworks &amp; Services</span>
-        <span class="cap-name">Spring Boot · Node.js · .NET Core</span>
+        <span class="cap-name">Spring Boot · Node.js · .NET Core · Next.js · NestJS</span>
         <span class="cap-desc">
           Service-layer and application development for scalable enterprise platforms, transactional systems, and integration-oriented solutions.
         </span>
@@ -979,9 +998,9 @@
 
       <div class="cap-card">
         <span class="cap-category">Data Platforms</span>
-        <span class="cap-name">Oracle · PostgreSQL · SQL Server · MySQL</span>
+        <span class="cap-name">Oracle · PostgreSQL · SQL Server · MySQL · MongoDB</span>
         <span class="cap-desc">
-          Relational database implementation for enterprise transactions, reporting structures, operational systems, and long-term data maintainability.
+          Relational and NoSQL database implementation for enterprise transactions, reporting structures, and long-term data maintainability.
         </span>
       </div>
 
@@ -990,6 +1009,14 @@
         <span class="cap-name">AWS · Azure · Google Cloud · Docker · Kubernetes</span>
         <span class="cap-desc">
           Multi-cloud familiarity with containerized deployment and infrastructure readiness to support resilient modern application delivery.
+        </span>
+      </div>
+
+      <div class="cap-card">
+        <span class="cap-category">AI &amp; Intelligent Systems</span>
+        <span class="cap-name">TensorFlow · Ollama · Vanna AI · Qwen · BGE</span>
+        <span class="cap-desc">
+          Practical AI integration spanning local LLM inference, natural-language analytics, semantic search, and privacy-preserving deployment patterns.
         </span>
       </div>
 
@@ -1018,16 +1045,8 @@
       </div>
 
       <div class="cap-card">
-        <span class="cap-category">Solution Domains</span>
-        <span class="cap-name">Digital Banking · Payments · ERP · LMS</span>
-        <span class="cap-desc">
-          Delivery exposure across regulated finance, payment enablement, enterprise resource planning, and digital learning environments.
-        </span>
-      </div>
-
-      <div class="cap-card">
         <span class="cap-category">Industry Context</span>
-        <span class="cap-name">Telecom · Aviation · Government · Finance</span>
+        <span class="cap-name">Telecom · Aviation · Government · Finance · Maritime</span>
         <span class="cap-desc">
           Technology leadership grounded in real operational environments where scale, governance, reliability, and measurable business impact matter.
         </span>
@@ -1035,6 +1054,7 @@
     </div>
   </section>
 
+  <!-- ─── CAPABILITIES ─── -->
   <section id="capabilities">
     <div class="section-header reveal">
       <span class="section-num">04 —</span>
@@ -1080,39 +1100,86 @@
     </div>
   </section>
 
+  <!-- ─── PROJECTS ─── -->
   <section id="projects">
     <div class="section-header reveal">
       <span class="section-num">05 —</span>
-      <h2 class="section-title">Projects</h2>
+      <h2 class="section-title">Selected Projects</h2>
     </div>
 
-    <div class="project-card reveal">
-      <div>
-        <p class="project-tag">Flagship Build — Current</p>
-        <h3 class="project-name">Enigra ERP</h3>
-        <p class="project-desc">
-          An offline-first, AI-enabled ERP for SMEs built from real business process understanding across finance, inventory,
-          sales, procurement, and operational workflows. The platform is designed to improve decision quality through natural-language
-          access, anomaly review, document intelligence, and forecasting support while preserving local control, data ownership,
-          and human judgment in day-to-day operations.
-        </p>
-        <div class="project-pills">
-          <span class="pill">Offline-first Architecture</span>
-          <span class="pill">Local AI Inference</span>
-          <span class="pill">Natural Language Query</span>
-          <span class="pill">Document Intelligence</span>
-          <span class="pill">Anomaly Detection</span>
-          <span class="pill">Forecasting Support</span>
-          <span class="pill">Kotlin Multiplatform</span>
-          <span class="pill">Spring Boot</span>
-          <span class="pill">FastAPI</span>
-          <span class="pill">PostgreSQL</span>
+    <div class="project-list">
+
+      <div class="project-card reveal">
+        <div>
+          <p class="project-tag">Fintech · Risk &amp; Compliance</p>
+          <h3 class="project-name">AVRA Risk Audit</h3>
+          <p class="project-desc">
+            End-to-end solution design and product engineering for a risk audit platform supporting financial institutions
+            in validating regulatory and statistical implementation frameworks — including IFRS 9, ICAAP, and Basel.
+            Built from architecture through implementation, translating complex audit requirements into a structured,
+            institution-ready product with interactive GUI, progress visibility, and automated reporting.
+          </p>
+          <div class="project-pills">
+            <span class="pill">IFRS 9</span>
+            <span class="pill">ICAAP</span>
+            <span class="pill">Basel Framework</span>
+            <span class="pill">Regulatory Compliance</span>
+            <span class="pill">Audit Workflow</span>
+            <span class="pill">Automated Reporting</span>
+          </div>
         </div>
+        <div class="project-status"><span class="dot inactive"></span>Delivered</div>
       </div>
-      <div class="project-status"><span class="dot"></span>In Development</div>
+
+      <div class="project-card reveal">
+        <div>
+          <p class="project-tag">Enterprise AI · Analytics</p>
+          <h3 class="project-name">Local AI Enterprise Analytics Assistant</h3>
+          <p class="project-desc">
+            A privacy-preserving enterprise analytics prototype enabling organizations to generate business insights
+            locally without exposing sensitive data to external AI services. Supports natural-language querying,
+            SQL generation, tabular outputs, and visual analytics — all within a controlled on-premise deployment
+            model. Designed as a reusable capability adaptable across risk, finance, operations, and domain-specific reporting.
+          </p>
+          <div class="project-pills">
+            <span class="pill">Local LLM Inference</span>
+            <span class="pill">Natural Language Query</span>
+            <span class="pill">SQL Generation</span>
+            <span class="pill">Ollama</span>
+            <span class="pill">Vanna AI</span>
+            <span class="pill">Privacy-Preserving</span>
+            <span class="pill">On-Premise Deployment</span>
+          </div>
+        </div>
+        <div class="project-status"><span class="dot"></span>Prototype</div>
+      </div>
+
+      <div class="project-card reveal">
+        <div>
+          <p class="project-tag">EdTech · Latin America</p>
+          <h3 class="project-name">EZclass — AI-Enabled ESL Platform</h3>
+          <p class="project-desc">
+            An online English learning platform for ESL learners in Latin America, combining accessible live instruction,
+            AI-enabled placement assessment, and digital service operations into a scalable product model. Integrates
+            live online classes, AI-powered testing, user-specific dashboards, subscription billing, and automated
+            scheduling — built for commercial sustainability and market-driven evolution.
+          </p>
+          <div class="project-pills">
+            <span class="pill">AI Assessment</span>
+            <span class="pill">Live Instruction</span>
+            <span class="pill">Subscription Model</span>
+            <span class="pill">Automated Scheduling</span>
+            <span class="pill">Latin America</span>
+            <span class="pill">EdTech</span>
+          </div>
+        </div>
+        <div class="project-status"><span class="dot inactive"></span>Delivered</div>
+      </div>
+
     </div>
   </section>
 
+  <!-- ─── PUBLICATIONS ─── -->
   <section id="publications">
     <div class="section-header reveal">
       <span class="section-num">06 —</span>
@@ -1140,7 +1207,7 @@
       </div>
 
       <div class="pub-card reveal">
-        <div class="pub-venue">IEEE ICONDBTM 2024</div>
+        <div class="pub-venue">IEEE ICONDBTM · 2024</div>
         <div class="pub-title">
           Enhancing Competitive Advantage Through Digital Leadership, Innovation, Organizational Culture, and Hybrid Work Model
         </div>
@@ -1152,7 +1219,7 @@
           href="https://doi.org/10.1109/ICONDBTM64135.2024.11122838"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="DOI link for Enhancing Competitive Advantage Through Digital Leadership, Innovation, Organizational Culture, and Hybrid Work Model"
+          aria-label="DOI link for Enhancing Competitive Advantage"
         >
           DOI: 10.1109/ICONDBTM64135.2024.11122838
         </a>
@@ -1160,6 +1227,7 @@
     </div>
   </section>
 
+  <!-- ─── CONTACT ─── -->
   <section id="contact">
     <div class="section-header reveal">
       <span class="section-num">07 —</span>
@@ -1209,8 +1277,6 @@
   <script>
     document.documentElement.classList.add('js-ready');
 
-    const revealElements = document.querySelectorAll('.reveal');
-
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -1219,13 +1285,10 @@
           obs.unobserve(entry.target);
         });
       },
-      {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      }
+      { threshold: 0.10, rootMargin: '0px 0px -30px 0px' }
     );
 
-    revealElements.forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
